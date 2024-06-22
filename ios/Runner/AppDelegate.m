@@ -56,7 +56,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.text = @"This is a platform view";
     label.textColor = UIColor.blackColor;
-    label.backgroundColor = UIColor.yellowColor;
+    label.backgroundColor = UIColor.redColor;
     _label = label;
   }
   return self;

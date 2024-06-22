@@ -13,21 +13,18 @@ class BackdropFilterDemo extends DemoPage {
     return Stack(
       children: [
         comparingWidget,
-        //         ClipRect(
-        //   clipper: RectClipper(),
-        // child:comparingWidget,
-        //         ),
-        ClipRect(
-          clipper: RectClipper(),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-            child: Center(
+        Center(
+          child: SizedBox(
+            height: 400,
+            width: 200,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100),
               child: Container(
-                alignment: Alignment.center,
-                width: 200.0,
-                height: 200.0,
-                color: Colors.green,
-                child: const Text('Hello World'),
+                color: Colors.blue,
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                  child: const SizedBox.expand(),
+                ),
               ),
             ),
           ),
@@ -43,7 +40,10 @@ class BackdropFilterDemo extends DemoPage {
 
   @override
   Widget bottomWidget() {
-    return ClipRRect(child:platformViewWidget(), borderRadius:BorderRadius.all(Radius.circular(50)));
+    return ClipRRect(
+      borderRadius: const BorderRadius.all(Radius.circular(50)),
+      child: platformViewWidget(),
+    );
   }
 }
 
@@ -51,7 +51,7 @@ class RectClipper extends CustomClipper<Rect> {
   @override
   Rect getClip(Size size) {
     // TODO: implement getClip
-    return const Rect.fromLTWH(200, 0, 100, 600);
+    return const Rect.fromLTWH(100, 100, 200, 500);
   }
 
   @override
@@ -59,5 +59,4 @@ class RectClipper extends CustomClipper<Rect> {
     // TODO: implement shouldReclip
     return true;
   }
-
 }

@@ -23,13 +23,14 @@ class DemoPage extends StatelessWidget {
   Widget topWidget() {
     throw UnimplementedError();
   }
+
   Widget bottomWidget() {
     throw UnimplementedError();
   }
 
   Widget regularWidget() {
     return Container(
-      color: Colors.yellowAccent,
+      color: Colors.red,
       child: const Center(
         child: Text('This section is a flutter widget.'),
       ),
